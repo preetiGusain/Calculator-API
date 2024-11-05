@@ -2,9 +2,19 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-//Defining route for API
-app.get('/', (req, res) => {
-    res.send("Hello World");
+// Middleware to parse JSON in the request body, This middleware enables Express to parse JSON data in req.body.
+app.use(express.json());
+
+function calculateSum(n) {
+    let ans = 0;
+    return ans + Number(n);
+}
+
+
+app.post('/', (req, res) => {
+    const n = req.body.n;
+    const ans = calculateSum(n)
+    res.send(ans.toString());
 });
 
 //Starting the server
