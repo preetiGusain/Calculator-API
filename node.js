@@ -17,6 +17,10 @@ function calculate(num1, num2, operator) {
     num1 = Number(num1);
     num2 = Number(num2);
 
+    if (isNaN(num1) || isNaN(num2)) {
+        return 'Error: Invalid input'; 
+    }
+
     switch (operator) {
         case '+':
             return num1 + num2;
@@ -32,6 +36,13 @@ function calculate(num1, num2, operator) {
             return 'Error: Invalid operator';
     }
 }
+app.post('/:operator', (req, res) => {
+    const { num1, num2 } = req.body;
+    const operator = req.params.operator;  // Get the operator from the URL
+
+    currentResult = calculate(num1, num2, operator);
+    res.send(currentResult.toString());
+});
 
 app.post('/add', (req, res) => {
     const { num1, num2 } = req.body;
