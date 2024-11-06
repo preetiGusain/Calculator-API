@@ -4,14 +4,14 @@
   "description": "A simple calculator API with Express.js",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node node.js",
     "dev": "nodemon index.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "4.21.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
   }
 }
-
