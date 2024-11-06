@@ -22,15 +22,15 @@ function calculate(num1, num2, operator) {
     }
 
     switch (operator) {
-        case '+':
+        case 'add':
             return num1 + num2;
-        case '-':
+        case 'subtract':
             return num1 - num2;
-        case '*':
+        case 'multiply':
             return num1 * num2;
-        case '/':
+        case 'divide':
             return (num1 / num2).toFixed(2);
-        case '%':
+        case 'mod':
             return num1 % num2;
         default:
             return 'Error: Invalid operator';
@@ -46,31 +46,31 @@ app.post('/:operator', (req, res) => {
 
 app.post('/add', (req, res) => {
     const { num1, num2 } = req.body;
-    currentResult = calculate(num1, num2, '+');
+    currentResult = calculate(num1, num2, 'add');
     res.send(currentResult.toString());
 });
 
 app.post('/subtract', (req, res) => {
     const { num1, num2 } = req.body;
-    currentResult = calculate(num1, num2, '-');
+    currentResult = calculate(num1, num2, 'subtract');
     res.send(currentResult.toString());
 });
 
 app.post('/multiply', (req, res) => {
     const { num1, num2 } = req.body;
-    currentResult = calculate(num1, num2, '*');
+    currentResult = calculate(num1, num2, 'multiply');
     res.send(currentResult.toString());
 });
 
 app.post('/divide', (req, res) => {
     const { num1, num2 } = req.body;
-    currentResult = calculate(num1, num2, '/');
+    currentResult = calculate(num1, num2, 'divide');
     res.send(currentResult.toString());
 });
 
 app.post('/mod', (req, res) => {
     const { num1, num2 } = req.body;
-    currentResult = calculate(num1, num2, '%');
+    currentResult = calculate(num1, num2, 'mod');
     res.send(currentResult.toString());
 });
 
