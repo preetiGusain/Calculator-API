@@ -4,6 +4,10 @@ const port = 3000;
 app.use(express.json());
 // Middleware to parse JSON in the request body, This middleware enables Express to parse JSON data in req.body.
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Calculator API!');
+});
+
 let currentResult = 0;
 
 function calculate(num1, num2, operator) {
